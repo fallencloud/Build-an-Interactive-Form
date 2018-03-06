@@ -1,5 +1,8 @@
 //A text field that will be revealed when the "Other" option is selected from the "Job Role" drop down menu.
 const titleList = document.getElementById('title');
+//hide the other input box on page load
+const otherTitle = document.getElementById('other-title');
+otherTitle.style.display = 'none';
 const designList = document.getElementById('design');
 const colorList = document.getElementById('color');
 const activities = document.querySelector('.activities');
@@ -122,19 +125,6 @@ function removeConflict(labelText) {
     }
 }//end function removeConflict
 
-function jobRole(titleList) {
-    //create text field
-    const otherTitle = document.createElement('input');
-    //give it type text
-    otherTitle.type = 'text';
-    //give it an id of otherTitle
-    otherTitle.id = 'other-title';
-    //give it the placeholder text of 'Your Job Role'
-    otherTitle.placeholder = 'Your Job Role';
-    const fieldSet = titleList.parentNode;
-    fieldSet.appendChild(otherTitle);
-}
-
 function chooseColors(shirtValue, colorList) {
     function hideAllColors() {
         for (let i = 0; i < colorList.length; i++) {
@@ -142,11 +132,12 @@ function chooseColors(shirtValue, colorList) {
         }
     }
 
-    // function showAllColors() {
-    //     for (let i = 0; i < colorList.length; i++) {
-    //         colorList[i].style.display = 'block';
-    //     }
-    // }
+    function showAllColors() {
+        for (let i = 0; i < colorList.length; i++) {
+            colorList[i].style.display = 'block';
+        }
+    }
+
     function showPunColors() {
         for (let i = 0; i < colorList.length; i++) {
           let lowest = colorList.length;  
@@ -178,9 +169,12 @@ function chooseColors(shirtValue, colorList) {
     }
 
     hideAllColors();
+    console.log(shirtValue);
     
     if(shirtValue === 'js puns') {
         showPunColors(); 
+    } else if (shirtValue === 'Select Theme') {
+        showAllColors();
     } else {
         showHeartColors();
     }
@@ -189,14 +183,12 @@ function chooseColors(shirtValue, colorList) {
 }
 
 function validateForm() {
-  let isValid = true;
+  let isValid = true; //set to default and only changed if something doesn't validate
   const name = document.getElementById('name');
   const email = document.getElementById('mail');
   const activity = document.querySelectorAll('.activities input[type="checkbox"]');
   const paymentInfo = document.querySelector('#payment option[value="credit card"]').selected;
   let activityChecked = false;
-  
-  console.log(activity);
   
   //name cannot be blank
   if (name.value < 1) {
@@ -231,23 +223,77 @@ function validateForm() {
     for (let i = 0; i < activity.length; i++){
       if (activity[i].checked === true) {
         activityChecked = true;
-        console.log(activityChecked);
       }    
     }
 
     if (activityChecked === false) {
-      activities.className = 'error';
+      activities.className = 'error activities';
       isValid = false;
     } else {
-      activities.className = '';
+      activities.className = 'activities';
     }
   }
+
+  function checkCreditInfo() {
+      const ccNum = document.getElementById('cc-num');
+      const zip = document.getElementById('zip');
+      const cvv = document.getElementById('cvv');
+        
+      //cc num should be a number between 13 and 16 digits
+      if (isNaN(parseInt(ccNum.value))) {
+          ccNum.classList.add('error');
+          ccNum.placeholder = 'not a number';
+          ccNum.value = '';
+          isValid = false;
+      } else if (!(ccNum.value.length >= 13 && ccNum.value.length <= 16)) {
+            ccNum.classList.add('error');
+            ccNum.placeholder = 'too long or short';
+            ccNum.value = '';
+            isValid = false;
+      } else {
+          ccNum.classList.remove('error');
+      }
+      //zip code should be a number that is 5 digits
+      if (isNaN(parseInt(zip.value))) {
+          zip.classList.add('error');
+          zip.placeholder = 'not a number';
+          zip.value = '';
+          isValid = false;
+      } else if (zip.value.length !== 5 ) {
+          zip.classList.add('error');
+          zip.placeholder = '5 digits only';
+          zip.value = '';
+          isValid = false;
+      } else {
+          zip.classList.remove('error');
+      }
+      //cvv should be a number that is 3 digits
+      if(isNaN(parseInt(cvv.value))) {
+          cvv.classList.add('error');
+          cvv.placeholder = 'not a number';
+          cvv.value = '';
+          isValid = false;
+      } else if (cvv.value.length !== 3) {
+          cvv.classList.add('error');
+          cvv.placeholder = '3 digits only';
+          isValid = false;
+      } else {
+          cvv.classList.remove('error');
+      }
+  }
   checkActivities(activityChecked);
+  if (paymentInfo === true) {
+      checkCreditInfo();
+  }
+
+  return isValid;
 }
 
 titleList.addEventListener('change', (e) => {
     if (e.target.value === 'other') {
-        jobRole(titleList);
+        otherTitle.style.display = 'block';
+    } else {
+        otherTitle.style.display = 'none';
     }
 });
 
@@ -277,7 +323,10 @@ payment.addEventListener('change', (e) => {
   hidePayement(paymentType);
 });
 
+//run the validation function to determine if
+  //the form should be submoitted
 form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  validateForm();
+  if (validateForm() === false) {
+    e.preventDefault();
+  }  
 });
