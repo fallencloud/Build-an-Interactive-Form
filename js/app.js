@@ -5,6 +5,7 @@ const otherTitle = document.getElementById('other-title');
 otherTitle.style.display = 'none';
 const designList = document.getElementById('design');
 const colorList = document.getElementById('color');
+colorList.style.display = 'none'; //hide the color list on load
 const activities = document.querySelector('.activities');
 let price = 0;
 const payment = document.getElementById('payment');
@@ -299,6 +300,7 @@ titleList.addEventListener('change', (e) => {
 
 designList.addEventListener('change', (e) => {
     const shirtValue = e.target.value;
+    colorList.style.display = 'block';
     chooseColors(shirtValue, colorList);
 });
 
