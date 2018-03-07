@@ -11,13 +11,19 @@ let price = 0;
 const payment = document.getElementById('payment');
 const form = document.querySelector('form');
 
-
-
-function hidePayement(paymentType) {
+  //declarations
   const payPal = document.getElementById('paypal');
   const bitcoin = document.getElementById('bitcoin');
   const creditCard = document.getElementById('credit-card');
 
+  //hide all payment options initially
+  payPal.style.display = 'none';
+  bitcoin.style.display = 'none';
+  creditCard.style.display = 'none';
+
+
+
+function hidePayement(paymentType) {
   if (paymentType === 'credit card') {
     payPal.style.display = 'none';
     bitcoin.style.display = 'none';
@@ -217,6 +223,8 @@ function validateForm() {
     email.value = '';
     email.placeholder = 'Ex name@example.com';
     isValid = false;
+  } else {
+      email.classList.remove('error');
   }
 
   function checkActivities(activityChecked) {
