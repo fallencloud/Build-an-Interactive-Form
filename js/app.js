@@ -10,16 +10,14 @@ const activities = document.querySelector('.activities');
 let price = 0;
 const payment = document.getElementById('payment');
 const form = document.querySelector('form');
+const payPal = document.getElementById('paypal');
+const bitcoin = document.getElementById('bitcoin');
+const creditCard = document.getElementById('credit-card');
 
-  //declarations
-  const payPal = document.getElementById('paypal');
-  const bitcoin = document.getElementById('bitcoin');
-  const creditCard = document.getElementById('credit-card');
-
-  //hide all payment options initially
-  payPal.style.display = 'none';
-  bitcoin.style.display = 'none';
-  creditCard.style.display = 'none';
+//hide all payment options initially
+payPal.style.display = 'none';
+bitcoin.style.display = 'none';
+creditCard.style.display = 'none';
 
 
 
@@ -32,10 +30,14 @@ function hidePayement(paymentType) {
     creditCard.style.display = 'none';
     bitcoin.style.display = 'none';
     payPal.style.display = 'block';
-  } else {
+  } else  if (paymentType === 'bitcoin') {
     creditCard.style.display = 'none';
     payPal.style.display = 'none';
     bitcoin.style.display = 'block';
+  } else {
+    payPal.style.display = 'none';
+    bitcoin.style.display = 'none';
+    creditCard.style.display = 'none';  
   }
 }
 function getCost(labelText) {
