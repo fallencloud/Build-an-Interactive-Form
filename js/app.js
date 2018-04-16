@@ -5,18 +5,23 @@ const otherTitle = document.getElementById('other-title');
 otherTitle.style.display = 'none';
 const designList = document.getElementById('design');
 const colorList = document.getElementById('color');
+colorList.style.display = 'none'; //hide the color list on load
 const activities = document.querySelector('.activities');
 let price = 0;
 const payment = document.getElementById('payment');
 const form = document.querySelector('form');
+const payPal = document.getElementById('paypal');
+const bitcoin = document.getElementById('bitcoin');
+const creditCard = document.getElementById('credit-card');
+
+//hide all payment options initially
+payPal.style.display = 'none';
+bitcoin.style.display = 'none';
+creditCard.style.display = 'none';
 
 
 
 function hidePayement(paymentType) {
-  const payPal = document.getElementById('paypal');
-  const bitcoin = document.getElementById('bitcoin');
-  const creditCard = document.getElementById('credit-card');
-
   if (paymentType === 'credit card') {
     payPal.style.display = 'none';
     bitcoin.style.display = 'none';
@@ -25,10 +30,14 @@ function hidePayement(paymentType) {
     creditCard.style.display = 'none';
     bitcoin.style.display = 'none';
     payPal.style.display = 'block';
-  } else {
+  } else  if (paymentType === 'bitcoin') {
     creditCard.style.display = 'none';
     payPal.style.display = 'none';
     bitcoin.style.display = 'block';
+  } else {
+    payPal.style.display = 'none';
+    bitcoin.style.display = 'none';
+    creditCard.style.display = 'none';  
   }
 }
 function getCost(labelText) {
@@ -216,6 +225,8 @@ function validateForm() {
     email.value = '';
     email.placeholder = 'Ex name@example.com';
     isValid = false;
+  } else {
+      email.classList.remove('error');
   }
 
   function checkActivities(activityChecked) {
@@ -299,6 +310,7 @@ titleList.addEventListener('change', (e) => {
 
 designList.addEventListener('change', (e) => {
     const shirtValue = e.target.value;
+    colorList.style.display = 'block';
     chooseColors(shirtValue, colorList);
 });
 
