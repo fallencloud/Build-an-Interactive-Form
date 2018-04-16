@@ -29,7 +29,7 @@
             <a class="nav-link" href="#schedule">Schedule</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#register">Register</a>
+            <a class="nav-link" href="#register" data-toggle="modal" data-target="#exampleModalLong">Register</a>
           </li>
         </ul>
       </div>
@@ -249,9 +249,191 @@
                 </div>
               </div>
     </div>
+
+    <!--Registration-->     
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Registration</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form action="index.html" method="post">
+                <div class="form-group">        
+                  <fieldset>         
+                    <legend>Basic Info</legend>
+                    
+                    <label for="name">Name:</label>
+                    <input class="form-control" type="text" id="name" name="user_name" autofocus>
+                    
+                    <label for="mail">Email:</label>
+                    <input class="form-control" type="text" id="mail" name="user_email">
+                    
+                    <label for="title">Job Role</label>
+                    <select class="form-control" id="title" name="user_title">
+                      <option value="full-stack js developer">Full Stack JavaScript Developer</option>
+                      <option value="front-end developer">Front End Developer</option>
+                      <option value="back-end developer">Back End Developer</option>
+                      <option value="designer">Designer</option>          
+                      <option value="student">Student</option>
+                      <option value="other">Other</option>  
+                    </select>
+                    <input class="form-control" type="text" id="other-title" name="other-title" placeholder="Your Job Role">          
+                  </fieldset>
+              </div>
+              <div class="form-group">
+                <fieldset class="shirt">
+                  <legend>T-Shirt Info</legend>
+                  
+                  <div>
+                    <label for="size">Size:</label>
+                    <select id="size" name="user_size" class="form-control">
+                      <option value="small">S</option>
+                      <option value="medium" selected>M</option>
+                      <option value="large">L</option>
+                      <option value="extra large">XL</option>
+                    </select>
+                  </div>
+          
+                  <div>
+                    <label for="design">Design:</label>
+                    <select class="form-control" id="design" name="user_design">
+                      <option>Select Theme</option>
+                      <option value="js puns">Theme - JS Puns</option>
+                      <option value="heart js">Theme - I &#9829; JS</option>
+                    </select>
+                  </div>
+          
+                  <div id="colors-js-puns" class="">
+                    <label for="color">Color:</label>
+                    <select id="color" class="form-control">
+                      <option value="cornflowerblue">Cornflower Blue (JS Puns shirt only)</option>
+                      <option value="darkslategrey">Dark Slate Grey (JS Puns shirt only)</option> 
+                      <option value="gold">Gold (JS Puns shirt only)</option> 
+                      <option value="tomato">Tomato (I &#9829; JS shirt only)</option>
+                      <option value="steelblue">Steel Blue (I &#9829; JS shirt only)</option> 
+                      <option value="dimgrey">Dim Grey (I &#9829; JS shirt only)</option> 
+                    </select>
+                  </div>                
+                </fieldset>
+              </div>
+              <div class="form-group">
+                <fieldset class="activities">
+                  <legend>Register for Activities</legend>
+                  <div class="form-check">                  
+                    <input class="form-check-input" type="checkbox" id="all" name="all">
+                    <label class="form-check-label" for="all"> Main Conference — $200</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="js-frameworks" id="js-frameworks">
+                    <label class="form-check-label" for="js-frameworks">JS Frameworks — Tues 9am-12pm, $100</label>
+                  </div>
+                  <div class="form-check">                    
+                    <input class="form-check-input" type="checkbox" name="js-libs" id="js-libs">
+                    <label class="form-check-label" for="js-libs">JS Libraries — Tues 1pm-4pm, $100</label>
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="express" id="express">
+                    <label class="form-check-label" for="express">Express Workshop — Tues 9am-12pm, $100</label>                    
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="node" id="node">
+                    <label class="form-check-label" for="node">Node.js — Tues 1pm-4pm, $100</label>                    
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="build-tools" id="build-tools">          
+                    <label class="form-check-label" for="build-tools">Build tools — Wed 9am-12pm, $100</label>                    
+                  </div>
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="npm" id="npm">
+                    <label class="form-check-label" for="npm">npm — Wed 1pm-4pm, $100</label>                    
+                  </div>
+                  <legend id="cost"></legend>         	
+                </fieldset>
+              </div>
+              <div class="form-group">
+                <fieldset>
+                  <legend>Payment Info</legend>
+          
+                  <label for="payment">I'm going to pay with:</label>
+                  <select id="payment" name="user_payment" class="form-control">
+                    <option value="select_method">Select Payment Method</option>
+                    <option value="credit card">Credit Card</option>
+                    <option value="paypal">PayPal</option>
+                    <option value="bitcoin">Bitcoin</option>
+                  </select>
+          
+                  <div id="credit-card" class="credit-card">
+          
+                    <div class="col-6 col">
+                      <label for="cc-num">Card Number:</label>
+                      <input id="cc-num" name="user_cc-num" type="text" class="form-control w-100">
+                    </div>
+          
+                    <div class="col-3 col">
+                      <label for="zip">Zip Code:</label>
+                      <input id="zip" name="user_zip" type="text" class="form-control"> 
+                    </div>
+          
+                    <div class="col-3 col">
+                      <label for="cvv">CVV:</label>
+                      <input id="cvv" name="user_cvv" type="text" class="form-control"> 
+                    </div>
+          
+                    <label for="exp-month">Expiration Date:</label>
+                    <select id="exp-month" name="user_exp-month" class="form-control">
+                      <option value="1">1 - January</option>
+                      <option value="2">2 - February</option>
+                      <option value="3">3 - March</option>
+                      <option value="4">4 - April</option>
+                      <option value="5">5 - May</option>
+                      <option value="6">6 - June</option>
+                      <option value="7">7 - July</option>
+                      <option value="8">8 - August</option>
+                      <option value="9">9 - September</option>
+                      <option value="10">10 - October</option>
+                      <option value="11">11 - November</option>	
+                      <option value="12">12 - December</option>          		          
+                    </select>
+                    <label for="exp-year">Expiration Year:</label>
+                    <select id="exp-year" name="user_exp-year" class="form-control">
+                      <option value="2018">2018</option>
+                      <option value="2019">2019</option>
+                      <option value="2020">2020</option>
+                      <option value="2021">2021</option>
+                      <option value="2022">2022</option>        		          
+                    </select> 	                  	         
+                  </div>
+          
+                  <div id="paypal">
+                    <p>If you selected the PayPal option we'll take you to Paypal's site to set up your billing information, when you click “Register” below.</p>
+                  </div> 
+          
+                  <div id="bitcoin">
+                    <p>If you selected the Bitcoin option we'll take you to the Coinbase site to set up your billing information. Due to the nature of exchanging Bitcoin, all Bitcoin transactions will be final.</p>
+                  </div>                  
+          
+                </fieldset>        
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">Register</button>
+                </div>
+              </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
   <!--Bootstrap JS/jQuery-->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!--Custom JS-->
+<script src="js/app.js"></script>
 </body>
 </html>
