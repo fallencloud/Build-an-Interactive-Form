@@ -49,19 +49,19 @@ function getCost(labelText) {
 }
 
 function addConflict(labelText) {
-    const labelsList = document.querySelectorAll('.activities .form-check-label');
+    const labelsList = document.querySelectorAll('.activities label');
     const amStatus = labelText.indexOf('am') !== -1;
     //allows us to ignore the main conference since it has no scheduled conflicts
     const notMain = labelText.indexOf('Main') !== -1;
 
     //check to see if the checked day and the potential conflict day are the same
     const checkDay = (day) => {
-      if (day.indexOf('Wed') !== -1) {
-        if (labelText.indexOf('Wed') !== -1) {
+      if (day.indexOf('Wednesday') !== -1) {
+        if (labelText.indexOf('Wednesday') !== -1) {
           return true;
         }
-      } else if (day.indexOf('Tues') !== -1) {
-        if (labelText.indexOf('Tues') !== -1) {
+      } else if (day.indexOf('Tuesday') !== -1) {
+        if (labelText.indexOf('Tuesday') !== -1) {
           return true;
         }
       } else {
