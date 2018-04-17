@@ -7,12 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--BootStrap CSS-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <script src="main.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
 </head>
 <body>
   <!--Navigation-->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
       <a class="navbar-brand" href="#">Fullstack Conf</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -35,15 +34,11 @@
       </div>
     </nav>
     <!--Slider-->
-    <div class="container-fluid" id="about">
+    <div class="container" id="about">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
+
         <div class="carousel-inner">
-          <div class="carousel-item active">
+          <div class="carousel-item active p-2" id="slide1">
             <p>
                 Keeping up with JavaScript frameworks can be a challenge. There are a lot of them, and seemingly another one every month. How do you know which ones might be right for your project? What are their strengths and weaknesses? How do you get started?
               </p> 
@@ -85,7 +80,7 @@
       </div>
     </div>
     <!--Schedule-->
-    <div class="container-fluid" id="schedule">
+    <div class="container" id="schedule">
       <h3>Schedule</h3>
         <div class="accordion" id="accordion">
             <div class="card">
@@ -198,9 +193,10 @@
           </div>
     </div>
     <!-- Speakers -->
-    <div class="container-fluid" id="speakers">
+    <div class="container" id="speakers">
       <h3>Speakers</h3>
-      <div class="card">
+      <div class="row">
+      <div class="card col-md-4">
         <div class="card-body">
           <img src="img/vivianne.png" class="d-block w-100">
           <h5 class="card-title">Vivianne</h5>
@@ -208,7 +204,7 @@
           <p class="card-text">Vivianne is a web developer and teacher who is passionate about building scalable, data-driven web apps, especially ones that address old problems with new tech!</p>
         </div>
       </div>
-      <div class="card">
+      <div class="card col-md-4">
           <div class="card-body">
             <img src="img/ecma.png" class="d-block w-100">
             <h5 class="card-title">Ecma</h5>
@@ -216,7 +212,7 @@
             <p class="card-text">Ecma found her passion for programming and teaching over 15 years ago. She is excited to introduce you to all of the wonders of JavaScript.</p>
           </div>
         </div>
-        <div class="card">
+        <div class="card col-md-4">
           <div class="card-body">
             <img src="img/nodestradamus.png" class="d-block w-100">
             <h5 class="card-title">Nodestradamus</h5>
@@ -224,7 +220,9 @@
             <p class="card-text">"NodeStra" is a software engineer and philosopher trying to leave the world better than he found it. He codes for non-profits, eCommerce, and large-scale web apps.</p>
           </div>
         </div>
-        <div class="card">
+        </div>
+        <div class="row">
+        <div class="card col-md-4">
             <div class="card-body">
               <img src="img/robbie.png" class="d-block w-100">
               <h5 class="card-title">Robbie</h5>
@@ -232,7 +230,7 @@
               <p class="card-text">Robbie is a JavaScript developer working on large-scale applications. He's also a teacher who strives to support students in removing barriers to learning code.</p>
             </div>
           </div>
-          <div class="card">
+        <div class="card col-md-4">
               <div class="card-body">
                 <img src="img/jay.png" class="d-block w-100">
                 <h5 class="card-title">Jay</h5>
@@ -240,7 +238,7 @@
                 <p class="card-text">Jay is a developer, author of CSS: The Missing Manual, JavaScript & jQuery: The Missing Manual, and web development teacher.</p>
               </div>
             </div>
-            <div class="card">
+            <div class="card col-md-4">
                 <div class="card-body">
                   <img src="img/json.png" class="d-block w-100">
                   <h5 class="card-title">JSON</h5>
@@ -248,6 +246,15 @@
                   <p class="card-text">All of his professional life, Json has worked with computers online; he is a polyglot programmer and likes using the right tools for the job.</p>
                 </div>
               </div>
+            </div>
+    </div>
+    <!--footer-->
+    <div class="container-fluid footer" >
+      <div class="row">
+        <p class="text-center">
+          &copy;2018 Sharina V. Jones
+        </p>
+      </div>
     </div>
 
     <!--Registration-->     
