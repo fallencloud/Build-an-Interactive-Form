@@ -1,25 +1,7 @@
 /* ================================= 
   Base Element Styles
 ==================================== */
-#carouselExampleIndicators {
-	background: url('../img/bitcoin-node.jpg') no-repeat;
-	background-size: cover;
-	color: #fff;
-	padding-top: 2%;
-	padding-bottom: 2%;
-	height: 250px;
-}
 
-#carouselExampleIndicators p {
-	width: 70%;
-	margin: auto;
-}
-
-.footer {
-	background-color: #343a40;
-	color: #fff;
-}
-
-.footer p {
-	text-align: center;
+* {
+	box-sizing: border-box;
 }
