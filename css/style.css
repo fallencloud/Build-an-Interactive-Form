@@ -1,7 +1,128 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,600,700|Roboto:400,500,700');
+
 /* ================================= 
   Base Element Styles
 ==================================== */
 
 * {
 	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Open Sans', Roboto, Arial, sans-serif;
+	font-size: 1em;
+	color: gray;
+	max-width: 990px;
+	margin: auto;
+}
+
+img {
+	max-width: 100%;
+}
+
+h1,
+h2,
+h3 {
+	margin: 0;
+	padding: 0;
+	font-weight: normal;
+	color: black;
+}
+
+ul {
+	list-style-type: none;
+	padding: 0;
+}
+
+header,
+header h2 {
+	background: #2c3e50;
+	color: #ecf0f1;
+}
+
+nav a,
+nav a:link,
+nav a:visited {
+	color: #fff;
+	text-decoration: none;
+}
+
+nav a:hover {
+	text-decoration: underline;
+}
+
+#jumbotron {
+	background: #2980b9;
+	color: #ecf0f1;
+	height: 200px;
+}
+#jumbotron h1,
+#jumbotron h3,
+#jumbotron input {
+	padding: 5px;
+	font-weight: normal;
+}
+
+#jumbotron h1,
+#jumbotron h3 {
+	color: #ecf0f1;
+}
+
+#jumbotron input[type="button"] {
+	border-radius: 5px;
+}
+
+#btn-register {
+	background: #3498db;
+	color: #ecf0f1;
+	border-collapse: #ecf0f1;
+	box-shadow: none;
+	border: 2px #ecf0f1 solid;
+}
+
+#btn-speakers {
+	background: #ecf0f1;
+	color: #3498db;
+	border-collapse: #3498db;
+	box-shadow: none;
+	border: 2px #3498db solid;
+}
+
+#about,
+#speakers,
+#schedule,
+#shoutout,
+#mail {
+	padding: 0 5px;
+}
+
+#btn-register-now {
+	background: #ffffff;
+	border: 2px #3498db solid;
+	color: #3498db;
+	padding: 5px;
+	border-radius: 5px;
+}
+
+#email {
+	padding: 5px;
+	border-radius: 5px;
+	border: 1px gray solid;
+}
+
+#btn-signup {
+	padding: 5px;
+	border-radius: 5px;
+	background: #3498db;
+	color: #ecf0f1;
+	border-collapse: #ecf0f1;
+	box-shadow: none;
+	border: 2px #ecf0f1 solid;
+}
+
+#copy {
+	background: #2c3e50;
+	color: #ecf0f1;
+	padding: 5px;
+	margin: 0;
 }
