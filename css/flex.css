@@ -1,0 +1,101 @@
+/* ================================= 
+  Small Screens
+==================================== */
+#header {
+    display: flex;
+    flex-direction: column;
+}
+
+#nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#jumbotron {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+#splash-buttons {
+    display: flex;
+}
+
+/* ================================= 
+  Media Queries
+==================================== */
+@media (min-width: 768px) {
+    #header {
+        flex-direction: row;
+        height: 50px;
+    }
+    #nav {
+        flex-direction: row;
+    }
+
+    #nav a {
+        border-bottom: none;
+    }
+
+    #jumbotron {
+        height: 400px;
+        justify-content: center;
+    }
+
+    #jumbotron h1,
+    #jumbtron h3,
+    #splash-buttons {        
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #jumbotron h1 {
+        font-size: 48px;
+        padding: 10px;
+    }
+
+    #jumbotron h3 {
+        font-size: 24px;
+        padding: 10px;
+    }
+
+    #splash-buttons {
+        padding: 10px;
+    }
+
+    #splash-buttons input[type="button"] {
+        padding: 5px;
+        font-size: 1.1rem;
+    }
+
+    #btn-register {
+        margin-right: 5px;
+    }
+    #speakers {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .card {
+        width: 45%;
+        margin: 2.5%;
+    }
+}
+
+@media (min-width: 992px) {
+
+    .card {
+        width: 30%;
+        margin: 1%;
+    }
+
+    #about,
+    #footer {
+        display: flex;
+    }
+
+    .about {
+        width: 33.33%;
+        margin: 8px;
+    }
+}
