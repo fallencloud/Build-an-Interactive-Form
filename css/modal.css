@@ -115,6 +115,15 @@ button:hover {
 	background: #184c62;
 }
 
+#cancel {
+	background: #B21B11;
+}
+
+#cancel:hover {
+	background-color: #FF0F00;	
+}
+
+
 /* ================================= 
   Page Styles
 ==================================== */

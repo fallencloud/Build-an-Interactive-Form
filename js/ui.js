@@ -19,9 +19,26 @@ $(function() {
 
 const $registration = $('.registration');
 const $modal = $('#modal');
+const $cancel = $('#modal #cancel');
 
 $registration.on('click', function() {
+    let screenTop = $(document).scrollTop();
     $modal.slideDown();
+    $modal.css({
+        "top" : screenTop,
+        "display": "flex",
+        "flex-direction" : "column",
+        "justify-content" : "center"
+    });
+});
+
+$cancel.on('click', function() {
+    $modal.slideUp();
+    $modal.css(
+        {
+            "display": "none"
+        }
+    );
 })
 
 
