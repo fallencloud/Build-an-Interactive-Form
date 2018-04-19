@@ -39,7 +39,23 @@ $cancel.on('click', function() {
             "display": "none"
         }
     );
-})
+});
+
+//accordian
+const $panels = $('.accordian li > p');
+let $currentP = $panels.first().text();
+$panels.hide();
+$panels.first().show();
+
+$('.accordian li > h3').on('click', function(e) {
+    let $nextLi = $(this).parent();
+    let $nextP = $nextLi.find('p');
+    if ($nextP.text() !== $currentP) { 
+        $panels.slideUp();       
+        $nextP.slideDown();
+        $currentP = $nextP.text();
+    }
+});
 
 
 });
