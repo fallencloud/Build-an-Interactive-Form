@@ -31,7 +31,12 @@
         height: 50px;
         padding-top: 10px;
     }
+    .material-icons {
+        display: none;
+    }
+
     #nav {
+        display: flex;
         flex-direction: row;
         margin-left: 10px;
     }
@@ -87,9 +92,18 @@
     }
 
     #about,
-    #footer {
+    #footer{
         display: flex;
     }
+
+    #footer div {
+        width: 45%;
+    }
+
+    #shoutout {
+        margin-right: 5%;
+    }
+
 
     .about {
         width: 33.33%;

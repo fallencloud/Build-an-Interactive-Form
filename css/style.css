@@ -29,6 +29,11 @@ h3 {
 	color: black;
 }
 
+h3,
+h2 {
+	margin: 5px 0;
+}
+
 ul {
 	list-style-type: none;
 	padding: 0;
@@ -127,6 +132,8 @@ nav a:hover {
 	color: #3498db;
 	padding: 5px;
 	border-radius: 5px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 #email {
@@ -150,4 +157,9 @@ nav a:hover {
 	color: #ecf0f1;
 	padding: 5px;
 	margin: 0;
+}
+
+#footer {
+	border-top: 1px grey solid;
+	margin-top: 10px;
 }
