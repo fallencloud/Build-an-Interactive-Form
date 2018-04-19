@@ -71,6 +71,13 @@ nav a:hover {
 	font-weight: normal;
 }
 
+#jumbotron a,
+#jumbotron a:link,
+#jumbotron a:visited {
+	color :#3498db;
+	text-decoration: none;
+}
+
 #jumbotron h1,
 #jumbotron h3,
 #splash-buttons {
@@ -111,6 +118,11 @@ nav a:hover {
 	border: 1px solid grey;
 	padding: 5px;
 
+}
+
+#descriptions {
+	margin-right: 5px;
+	margin-left: 5px;
 }
 
 #schedList h3 {
