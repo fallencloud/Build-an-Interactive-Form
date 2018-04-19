@@ -1,7 +1,10 @@
 $(function() {
     let $menuBtn = $('#drop-btn');
     const $menu = $('.drop-body');
-    $menu.slideUp();
+
+    // if ($window.width() < 768) {
+    //     $menu.css({'display': 'none'});
+    // }
 
  $(window).resize(function () {
         if ($(this).width() >= 768) {
@@ -14,4 +17,13 @@ $(function() {
 
     });
 
+const $registration = $('.registration');
+const $modal = $('#modal');
+
+$registration.on('click', function() {
+    $modal.slideDown();
+})
+
+
 });
+
