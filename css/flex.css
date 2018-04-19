@@ -29,9 +29,11 @@
     #header {
         flex-direction: row;
         height: 50px;
+        padding-top: 10px;
     }
     #nav {
         flex-direction: row;
+        margin-left: 10px;
     }
 
     #nav a {
@@ -43,12 +45,6 @@
         justify-content: center;
     }
 
-    #jumbotron h1,
-    #jumbtron h3,
-    #splash-buttons {        
-        margin-left: auto;
-        margin-right: auto;
-    }
     #jumbotron h1 {
         font-size: 48px;
         padding: 10px;
@@ -63,6 +59,7 @@
         padding: 10px;
     }
 
+    #btn-register-now,
     #splash-buttons input[type="button"] {
         padding: 5px;
         font-size: 1.1rem;

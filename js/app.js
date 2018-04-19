@@ -1,18 +1,18 @@
 //A text field that will be revealed when the "Other" option is selected from the "Job Role" drop down menu.
-const titleList = document.getElementById('title');
+const titleList = document.querySelector('#form-body #title');
 //hide the other input box on page load
-const otherTitle = document.getElementById('other-title');
+const otherTitle = document.querySelector('#form-body #other-title');
 otherTitle.style.display = 'none';
-const designList = document.getElementById('design');
-const colorList = document.getElementById('color');
+const designList = document.querySelector('#form-body #design');
+const colorList = document.querySelector('#form-body #color');
 colorList.style.display = 'none'; //hide the color list on load
-const activities = document.querySelector('.activities');
+const activities = document.querySelector('#form-body .activities');
 let price = 0;
-const payment = document.getElementById('payment');
-const form = document.querySelector('form');
-const payPal = document.getElementById('paypal');
-const bitcoin = document.getElementById('bitcoin');
-const creditCard = document.getElementById('credit-card');
+const payment = document.querySelector('#form-body #payment');
+const form = document.querySelector('#form-body form');
+const payPal = document.querySelector('#form-body #paypal');
+const bitcoin = document.querySelector('#form-body #bitcoin');
+const creditCard = document.querySelector('#form-body #credit-card');
 
 //hide all payment options initially
 payPal.style.display = 'none';
@@ -49,7 +49,7 @@ function getCost(labelText) {
 }
 
 function addConflict(labelText) {
-    const labelsList = document.querySelectorAll('.activities label');
+    const labelsList = document.querySelectorAll('#form-body .activities label');
     const amStatus = labelText.indexOf('am') !== -1;
     //allows us to ignore the main conference since it has no scheduled conflicts
     const notMain = labelText.indexOf('Main') !== -1;
@@ -103,7 +103,7 @@ function addConflict(labelText) {
 }//end function addConflict
 
 function removeConflict(labelText) {
-    const labelsList = document.querySelectorAll('.activities label');
+    const labelsList = document.querySelectorAll('#form-body .activities label');
     const amStatus = labelText.indexOf('am') !== -1;
     const notMain = labelText.indexOf('Main') !== -1;
 
@@ -193,10 +193,10 @@ function chooseColors(shirtValue, colorList) {
 
 function validateForm() {
   let isValid = true; //set to default and only changed if something doesn't validate
-  const name = document.getElementById('name');
-  const email = document.getElementById('mail');
-  const activity = document.querySelectorAll('.activities input[type="checkbox"]');
-  const paymentInfo = document.querySelector('#payment option[value="credit card"]').selected;
+  const name = document.querySelector('#form-body #name');
+  const email = document.querySelector('#form-body #mail');
+  const activity = document.querySelectorAll('#form-body .activities input[type="checkbox"]');
+  const paymentInfo = document.querySelector('#form-body #payment option[value="credit card"]').selected;
   let activityChecked = false;
   
   //name cannot be blank
@@ -246,9 +246,9 @@ function validateForm() {
   }
 
   function checkCreditInfo() {
-      const ccNum = document.getElementById('cc-num');
-      const zip = document.getElementById('zip');
-      const cvv = document.getElementById('cvv');
+      const ccNum = document.querySelector('#form-body #cc-num');
+      const zip = document.querySelector('#form-body #zip');
+      const cvv = document.querySelector('#form-body #cvv');
         
       //cc num should be a number between 13 and 16 digits
       if (isNaN(parseInt(ccNum.value))) {
@@ -316,7 +316,7 @@ designList.addEventListener('change', (e) => {
 
 activities.addEventListener('change', (e) => {
     let label = e.target.parentNode.textContent;
-    let legend = document.getElementById('cost');
+    let legend = document.querySelector('#form-body #cost');
     if (e.target.checked === true) {
         price += getCost(label);
         legend.textContent = `Total: ${price}`;
@@ -338,6 +338,7 @@ payment.addEventListener('change', (e) => {
 //run the validation function to determine if
   //the form should be submoitted
 form.addEventListener('submit', (e) => {
+
   if (validateForm() === false) {
     e.preventDefault();
   }  
