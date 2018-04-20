@@ -199,7 +199,7 @@
       
           <form action="success.html" method="post">
                     
-            <fieldset>         
+            <fieldset class="basic">         
               <legend>Basic Info</legend>
               
               <label for="name">Name:</label>
@@ -266,7 +266,7 @@
               <label><input type="checkbox" name="npm"> npm Workshop — Wednesday 1pm-4pm, $100</label>
               <legend id="cost"></legend>         	
             </fieldset>
-            <fieldset>
+            <fieldset class="payment">
               <legend>Payment Info</legend>
       
               <label for="payment">I'm going to pay with:</label>
@@ -328,8 +328,8 @@
               </div>                  
       
             </fieldset>        
-              
-            <button type="submit">Register</button>
+            <button type="button" id="next">Next</button>  
+            <button type="submit" id="submit">Register</button>
             <button type="button" id="cancel">Cancel</button>
           </form>
         </div>      
@@ -339,7 +339,7 @@
       integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
       crossorigin="anonymous"></script>
     <script src="js/app.js"></script>
-
     <script src="js/ui.js"></script>
+    <script src="js/modal.js"></script>
 </body>
 </html>

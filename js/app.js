@@ -191,14 +191,9 @@ function chooseColors(shirtValue, colorList) {
 
 }
 
-function validateForm() {
-  let isValid = true; //set to default and only changed if something doesn't validate
-  const name = document.querySelector('#form-body #name');
-  const email = document.querySelector('#form-body #mail');
-  const activity = document.querySelectorAll('#form-body .activities input[type="checkbox"]');
-  const paymentInfo = document.querySelector('#form-body #payment option[value="credit card"]').selected;
-  let activityChecked = false;
-  
+function checkName() {
+    let isValid = true;
+    const name = document.querySelector('#form-body #name');
   //name cannot be blank
   if (name.value < 1) {
     name.className = 'error';
@@ -208,91 +203,116 @@ function validateForm() {
     name.className = '';
   }
 
-  //email cannot be blank
-  if (email.value < 1) {
-    email.className = 'error';
-    email.placeholder = 'A valid email address is required';
-    isValid = false;
-  } else if (email.value.indexOf('@') === -1) {
-    //verify email is in correct format
-    email.className = 'error';
-    email.value = '';
-    email.placeholder = 'Ex name@example.com';
-    isValid = false;
-  } else if (email.value.indexOf('.com') === -1) {
-    //verify email is in correct format
-    email.className = 'error';
-    email.value = '';
-    email.placeholder = 'Ex name@example.com';
-    isValid = false;
-  } else {
-      email.classList.remove('error');
+  return isValid;
+}
+
+function checkEmail() {
+    const email = document.querySelector('#form-body #mail');
+    let isValid = true;
+
+      //email cannot be blank
+    if (email.value < 1) {
+        email.className = 'error';
+        email.placeholder = 'A valid email address is required';
+        isValid = false;
+    } else if (email.value.indexOf('@') === -1) {
+        //verify email is in correct format
+        email.className = 'error';
+        email.value = '';
+        email.placeholder = 'Ex name@example.com';
+        isValid = false;
+    } else if (email.value.indexOf('.com') === -1) {
+        //verify email is in correct format
+        email.className = 'error';
+        email.value = '';
+        email.placeholder = 'Ex name@example.com';
+        isValid = false;
+    } else {
+        email.classList.remove('error');
+    }
+
+    return isValid;
+}
+
+
+function checkActivities() {
+    //at least one activity must be selected
+    let isValid = true;
+    let activity = $('#form-body .activities input[type="checkbox"]:checked');
+    
+    if (activity) {
+        isValid = true;
+        activities.classList.remove('error');
+    } else  {
+        activities.classList.add('error');
+        isValid = false;    
+    }
+
+    console.log(isValid);
+    return isValid;
   }
 
-  function checkActivities(activityChecked) {
-    //at least one activity must be selected
-    for (let i = 0; i < activity.length; i++){
-      if (activity[i].checked === true) {
-        activityChecked = true;
-      }    
-    }
+function validateForm() {
+  let isValid = true; //set to default and only changed if something doesn't validate
+  const paymentInfo = document.querySelector('#form-body #payment option[value="credit card"]').selected;
+  
+    
+  isValid = checkName();
+  isValid = checkEmail();
+  isValid = checkActivities();
 
-    if (activityChecked === false) {
-      activities.className = 'error activities';
-      isValid = false;
-    } else {
-      activities.className = 'activities';
-    }
+  if (paymentInfo) {
+      checkCreditInfo();
   }
 
   function checkCreditInfo() {
-      const ccNum = document.querySelector('#form-body #cc-num');
-      const zip = document.querySelector('#form-body #zip');
-      const cvv = document.querySelector('#form-body #cvv');
-        
-      //cc num should be a number between 13 and 16 digits
-      if (isNaN(parseInt(ccNum.value))) {
+    const ccNum = document.querySelector('#form-body #cc-num');
+    const zip = document.querySelector('#form-body #zip');
+    const cvv = document.querySelector('#form-body #cvv');
+      
+    //cc num should be a number between 13 and 16 digits
+    if (isNaN(parseInt(ccNum.value))) {
+        ccNum.classList.add('error');
+        ccNum.placeholder = 'not a number';
+        ccNum.value = '';
+        isValid = false;
+    } else if (!(ccNum.value.length >= 13 && ccNum.value.length <= 16)) {
           ccNum.classList.add('error');
-          ccNum.placeholder = 'not a number';
+          ccNum.placeholder = 'too long or short';
           ccNum.value = '';
           isValid = false;
-      } else if (!(ccNum.value.length >= 13 && ccNum.value.length <= 16)) {
-            ccNum.classList.add('error');
-            ccNum.placeholder = 'too long or short';
-            ccNum.value = '';
-            isValid = false;
-      } else {
-          ccNum.classList.remove('error');
-      }
-      //zip code should be a number that is 5 digits
-      if (isNaN(parseInt(zip.value))) {
-          zip.classList.add('error');
-          zip.placeholder = 'not a number';
-          zip.value = '';
-          isValid = false;
-      } else if (zip.value.length !== 5 ) {
-          zip.classList.add('error');
-          zip.placeholder = '5 digits only';
-          zip.value = '';
-          isValid = false;
-      } else {
-          zip.classList.remove('error');
-      }
-      //cvv should be a number that is 3 digits
-      if(isNaN(parseInt(cvv.value))) {
-          cvv.classList.add('error');
-          cvv.placeholder = 'not a number';
-          cvv.value = '';
-          isValid = false;
-      } else if (cvv.value.length !== 3) {
-          cvv.classList.add('error');
-          cvv.placeholder = '3 digits only';
-          isValid = false;
-      } else {
-          cvv.classList.remove('error');
-      }
-  }
-  checkActivities(activityChecked);
+    } else {
+        ccNum.classList.remove('error');
+    }
+    //zip code should be a number that is 5 digits
+    if (isNaN(parseInt(zip.value))) {
+        zip.classList.add('error');
+        zip.placeholder = 'not a number';
+        zip.value = '';
+        isValid = false;
+    } else if (zip.value.length !== 5 ) {
+        zip.classList.add('error');
+        zip.placeholder = '5 digits only';
+        zip.value = '';
+        isValid = false;
+    } else {
+        zip.classList.remove('error');
+    }
+    //cvv should be a number that is 3 digits
+    if(isNaN(parseInt(cvv.value))) {
+        cvv.classList.add('error');
+        cvv.placeholder = 'not a number';
+        cvv.value = '';
+        isValid = false;
+    } else if (cvv.value.length !== 3) {
+        cvv.classList.add('error');
+        cvv.placeholder = '3 digits only';
+        isValid = false;
+    } else {
+        cvv.classList.remove('error');
+    }
+}
+
   if (paymentInfo === true) {
       checkCreditInfo();
   }
