@@ -58,6 +58,8 @@ function showForm($formFields) {
                 currentSection.fadeIn('slow');
                 $("#submit").show();
                 $nextButton.hide();
+            } else {
+                
             }
         } 
     })

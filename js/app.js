@@ -238,17 +238,18 @@ function checkEmail() {
 function checkActivities() {
     //at least one activity must be selected
     let isValid = true;
+    let activityList = $('.activities');
     let activity = $('#form-body .activities input[type="checkbox"]:checked');
+    console.log(activity);
     
-    if (activity) {
+    if (activity.length > 0) {
         isValid = true;
-        activities.classList.remove('error');
+        activityList.removeClass('error');
     } else  {
-        activities.classList.add('error');
+        activityList.addClass('error');
         isValid = false;    
     }
 
-    console.log(isValid);
     return isValid;
   }
 
