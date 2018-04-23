@@ -15,7 +15,7 @@
         color: #184f68;
         background: #accbd9;
         width: 400px;
-        height: 350px;
+        min-height: 300px;
         margin: auto;
 }
 

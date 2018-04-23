@@ -4,6 +4,15 @@ const $modal = $('#modal');
 const $cancel = $('#modal #cancel');
 const $nextButton = $('#next').hide();
 
+$cancel.on('click', function() {
+    $modal.slideUp();
+    $modal.css(
+        {
+            "display": "none"
+        }
+    );
+});
+
 $registration.on('click', function() {
     let screenTop = $(document).scrollTop();
     $modal.slideDown();
@@ -48,29 +57,32 @@ function showForm($formFields) {
             //no validation required
             currentSection.fadeOut('slow');
             currentSection = currentSection.next();
+            $nextButton.attr('disabled', 'disabled');
+            $nextButton.css({"background-color": "gray"});
             currentSection.fadeIn('slow');
         } else if (currentSection.attr('class') === 'activities') {
-            isValid = checkActivities();
-            
-            if (isValid) {
-                currentSection.fadeOut('slow');
-                currentSection = currentSection.next();
-                currentSection.fadeIn('slow');
-                $("#submit").show();
-                $nextButton.hide();
-            } else {
-                
-            }
+            currentSection.fadeOut('slow');
+            currentSection = currentSection.next();
+            $nextButton.hide();
+            $('button[id="submit"]').show();
+            currentSection.fadeIn('slow');           
         } 
-    })
-}
+    });
+}//end showForm
+});
 
-$cancel.on('click', function() {
-    $modal.slideUp();
-    $modal.css(
-        {
-            "display": "none"
-        }
-    );
+let checkBoxes = $('.activities input[type="checkbox"');           
+//if a box is checked
+checkBoxes.on('change', function(e) {
+    let $nextButton = $('#next');
+
+    //if nothing is checked, the button is disabled
+    if ($('.activities input:checkbox:checked').length === 0) {
+        $nextButton.attr('disabled', 'disabled');
+        $nextButton.css({"background-color": "gray"});
+    } else {
+        $nextButton.removeAttr('disabled');
+        $nextButton.css({"background-color" : "#22627e"});
+    }
 });
-});
+
