@@ -1,129 +1,139 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Full Stack Conf</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/normalize.css" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="css/modal.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="css/flex.css" />      
-</head>
-<body>
-    <header id="header">
-        <h2>Full Stack Conf</h2>
+function Header() {
+  return (
+    <div>
+      <header id="header">
+      <h2>Full Stack Conf</h2>
         <nav>
-            <i class="material-icons" id="drop-btn">menu</i>
-                <div id="nav" class="drop-body">
-                <a href="#about">About</a>
-                <a href="#speakers">Speakers</a>
-                <a href="#descriptions">Topic Details</a>
-                <a href="#register" class="registration">Register</a>
-        </div>
+          <i className="material-icons" id="drop-btn">menu</i>
+          <div id="nav" className="drop-body">
+          <a href="#about">About</a>
+          <a href="#speakers">Speakers</a>
+          <a href="#descriptions">Topic Details</a>
+          <a href="#register" className="registration">Register</a>
+          </div>
         </nav>
-    </header>
-    <!--Main Content-->
-    <main>
-        <!--Jumbotron-->
-        <section id="jumbotron">
+      </header>
+    </div>
+
+  );
+}
+
+function Jumbotron() {
+  return (
+    <div>
+      <section id="jumbotron">
             <h1>Full Stack Conf</h1>
             <h3>The latest info on using JavaScript for your development stack!</h3>
             <div id="splash-buttons">
-                <input type="button" value="Register Now" id="btn-register" class="registration">
-                <a href="#speakers"><input type="button" value="See Speakers" id="btn-speakers"></a>
+                <input type="button" value="Register Now" id="btn-register" className="registration" />
+                <a href="#speakers"><input type="button" value="See Speakers" id="btn-speakers"/></a>
             </div>
-        </section>
-        <!--About-->
-        <section id="about">
-            <div class="about">
-                <h3>Event Speakers</h3>
-                <p>
-                    Our expert speaker lineup was just announced, so don't wait too long before grabbing your tickets!
-                </p>
-                <p>
-                    Want to meet the international JavaScript community and share skills with some of the world's top experts, hackers, and makers? Be the first to know what to expect for the future of JavaScript.
-                </p>
+      </section>
+    </div>
+  )
+}
+
+function About() {
+  return (
+    <div>
+      <section id="about">
+        <div className="about">
+            <h3>Event Speakers</h3>
             <p>
-                Full Stack Conf is committed to being inclusive and welcoming for everyone. We look forward to another intensive day of learning and sharing.
+                Our expert speaker lineup was just announced, so don't wait too long before grabbing your tickets!
             </p>
-            </div>
-            <div class="about">
-                <h3>About Full Stack Conf</h3>
-                <img src="img/pdx.jpg" alt="a picture of portland oregan">
-                <p>
-                    The beautiful city of Portland, Oregon will be the host city for Full Stack Conf!
-                </p>
-                <p>
-                    Explore the future of JavaScript with a lineup of industry professionals. Discover new techniques to advance your career as a web developer.
-                </p>
-            </div>
-            <div class="about">
-                <h3>Topics</h3>
-                <ul id="events">
-                    <li>Main Conference</li>
-                    <li>JavaScript Frameworks</li>
-                    <li>JavaScript Libraries</li>
-                    <li>Node.js</li>
-                    <li>Express Workshop</li>
-                    <li>Build Tools</li>
-                    <li>npm</li>
-                </ul>
-            </div>
-        </section>
-        <h2>Speakers</h2>
-        <!--Speakers-->
-        <section id="speakers">
-            
-            <div class="card">
-                <img src="img/vivianne.png" alt="a picture of Vivianne">
+            <p>
+                Want to meet the international JavaScript community and share skills with some of the world's top experts, hackers, and makers? Be the first to know what to expect for the future of JavaScript.
+            </p>
+        <p>
+            Full Stack Conf is committed to being inclusive and welcoming for everyone. We look forward to another intensive day of learning and sharing.
+        </p>
+        </div>
+        <div className="about">
+            <h3>About Full Stack Conf</h3>
+            <img src="img/pdx.jpg" alt="a picture of portland oregan"/>
+            <p>
+                The beautiful city of Portland, Oregon will be the host city for Full Stack Conf!
+            </p>
+            <p>
+                Explore the future of JavaScript with a lineup of industry professionals. Discover new techniques to advance your career as a web developer.
+            </p>
+        </div>
+        <div className="about">
+            <h3>Topics</h3>
+            <ul id="events">
+                <li>Main Conference</li>
+                <li>JavaScript Frameworks</li>
+                <li>JavaScript Libraries</li>
+                <li>Node.js</li>
+                <li>Express Workshop</li>
+                <li>Build Tools</li>
+                <li>npm</li>
+            </ul>
+        </div>
+      </section>
+    </div>
+  )
+}
+
+function Speakers() {
+  return (
+    <div>
+      <h2>Speakers</h2>
+        <section id="speakers">            
+            <div className="card">
+                <img src="img/vivianne.png" alt="a picture of Vivianne" />
                 <h3>JavaScript Frameworks</h3>
                 <p>
                     Vivianne is a web developer and teacher who is passionate about building scalable, data-driven web apps, especially ones that address old problems with new tech!
                 </p>
             </div>
-            <div class="card">
-                <img src="img/ecma.png" alt="a picture of Ecma">
+            <div className="card">
+                <img src="img/ecma.png" alt="a picture of Ecma" />
                 <h3>JavaScript Libraries</h3>
                 <p>
                     Ecma found her passion for programming and teaching over 15 years ago. She is excited to introduce you to all of the wonders of JavaScript.
                 </p>
             </div>
-            <div class="card">
-                <img src="img/nodestradamus.png" alt="a picture of Nodestradamus">
+            <div className="card">
+                <img src="img/nodestradamus.png" alt="a picture of Nodestradamus"/>
                 <h3>Node</h3>
                 <p>
                     "NodeStra" is a software engineer and philosopher trying to leave the world better than he found it. He codes for non-profits, eCommerce, and large-scale web apps.
                 </p>
             </div>
-            <div class="card">
-                <img src="img/robbie.png" alt="a picture of Robbie">
+            <div className="card">
+                <img src="img/robbie.png" alt="a picture of Robbie" />
                 <h3>Express</h3>
                 <p>
                     Robbie is a JavaScript developer working on large-scale applications. He's also a teacher who strives to support students in removing barriers to learning code.
                 </p>
             </div>
-            <div class="card">
-                <img src="img/jay.png" alt="a picture of Jay">
+            <div className="card">
+                <img src="img/jay.png" alt="a picture of Jay" />
                 <h3>Build Tools</h3>
                 <p>
-                    Jay is a developer, author of CSS: The Missing Manual, JavaScript & jQuery: The Missing Manual, and web development teacher.
+                    Jay is a developer, author of CSS: The Missing Manual, JavaScript &amp; jQuery: The Missing Manual, and web development teacher.
                 </p>
             </div>
-            <div class="card">
-                <img src="img/json.png" alt="a picture of JSON">
+            <div className="card">
+                <img src="img/json.png" alt="a picture of JSON" />
                 <h3>npm</h3>
                 <p>
                     All of his professional life, Json has worked with computers online; he is a polyglot programmer and likes using the right tools for the job.
                 </p>
             </div>
         </section>
-        <!--Schedule-->
-        <section id="descriptions">
+    </div>
+  )
+}
+
+function Descriptions() {
+  return(
+    <div>
+      <section id="descriptions">
             <h2>Topic Details</h2>
-            <ul id="schedList" class="accordian">
+            <ul id="schedList" className="accordian">
                 <li>
                     <h3>Main Conference</h3>
                     <p>
@@ -168,11 +178,30 @@
                 </li>
             </ul> 
             <div id="callout">
-                <input type="button" id="btn-register-now" value="Don't miss out! Register now!" class="registration">
+                <input type="button" id="btn-register-now" value="Don't miss out! Register now!" className="registration" />
             </div>
-        </section>
-    </main>
-    <footer id="footer">
+          </section>
+    </div>
+  )
+}
+
+function Main() {
+  return (
+    <div>
+      <main>
+        <Jumbotron />
+        <About />
+        <Speakers />
+        <Descriptions />
+      </main>
+    </div>
+  );
+}
+
+function Footer() {
+  return (
+    <div>
+      <footer id="footer">
         <div id="shoutout">
             <h3>About Sharina V.</h3>
             <p>
@@ -181,14 +210,18 @@
         </div>
         <div id="contact">
             <h3>Stay up-to-date on Full Stack Conf</h3>
-            <input type="email" id="email" placeholder="Email">
-            <input type="button" id="btn-signup" value="Sign up">
+            <input type="email" id="email" placeholder="Email" />>
+            <input type="button" id="btn-signup" value="Sign up" />>
         </div>
-    </footer>
-    <footer>
-        <p id="copy">&copy;2018 Sharina V. Jones</p>
-    </footer>
-    <div id="modal">
+      </footer>
+    </div>
+  )
+}
+
+function Modal() {
+  return (
+    <div>
+       <div id="modal">
         <div id="form-body">
         <header>
             <span>Register for</span>
@@ -197,14 +230,14 @@
       
           <form action="success.html" method="post">
                     
-            <fieldset class="basic">         
+            <fieldset className="basic">         
               <legend>Basic Info</legend>
               
               <label for="name">Name:</label>
-              <input type="text" id="name" name="user_name" autofocus>
+              <input type="text" id="name" name="user_name" autofocus />
               
               <label for="mail">Email:</label>
-              <input type="text" id="mail" name="user_email">
+              <input type="text" id="mail" name="user_email" />
               
               <label for="title">Job Role</label>
               <select id="title" name="user_title">
@@ -215,10 +248,10 @@
                 <option value="student">Student</option>
                 <option value="other">Other</option>  
               </select>
-              <input type="text" id="other-title" name="other-title" placeholder="Your Job Role">          
+              <input type="text" id="other-title" name="other-title" placeholder="Your Job Role" />          
             </fieldset>
             
-            <fieldset class="shirt">
+            <fieldset className="shirt">
               <legend>T-Shirt Info</legend>
               
               <div>
@@ -240,7 +273,7 @@
                 </select>
               </div>
       
-              <div id="colors-js-puns" class="">
+              <div id="colors-js-puns" className="">
                 <label for="color">Color:</label>
                 <select id="color">
                   <option value="cornflowerblue">Cornflower Blue (JS Puns shirt only)</option>
@@ -253,18 +286,18 @@
               </div>                
             </fieldset>
       
-            <fieldset class="activities">
+            <fieldset className="activities">
               <legend>Register for Activities</legend>
-              <label><input type="checkbox" name="all"> Main Conference — $200</label>
-              <label><input type="checkbox" name="js-frameworks"> JavaScript Frameworks Workshop — Tuesday 9am-12pm, $100</label>
-              <label><input type="checkbox" name="js-libs"> JavaScript Libraries Workshop — Tuesday 1pm-4pm, $100</label>
-              <label><input type="checkbox" name="express"> Express Workshop — Tuesday 9am-12pm, $100</label>
-              <label><input type="checkbox" name="node"> Node.js Workshop — Tuesday 1pm-4pm, $100</label>          
-              <label><input type="checkbox" name="build-tools"> Build tools Workshop — Wednesday 9am-12pm, $100</label>
-              <label><input type="checkbox" name="npm"> npm Workshop — Wednesday 1pm-4pm, $100</label>
+              <label><input type="checkbox" name="all" /> Main Conference — $200</label>
+              <label><input type="checkbox" name="js-frameworks" /> JavaScript Frameworks Workshop — Tuesday 9am-12pm, $100</label>
+              <label><input type="checkbox" name="js-libs" /> JavaScript Libraries Workshop — Tuesday 1pm-4pm, $100</label>
+              <label><input type="checkbox" name="express" /> Express Workshop — Tuesday 9am-12pm, $100</label>
+              <label><input type="checkbox" name="node" /> Node.js Workshop — Tuesday 1pm-4pm, $100</label>          
+              <label><input type="checkbox" name="build-tools" /> Build tools Workshop — Wednesday 9am-12pm, $100</label>
+              <label><input type="checkbox" name="npm" /> npm Workshop — Wednesday 1pm-4pm, $100</label>
               <legend id="cost"></legend>         	
             </fieldset>
-            <fieldset class="payment">
+            <fieldset className="payment">
               <legend>Payment Info</legend>
       
               <label for="payment">I'm going to pay with:</label>
@@ -275,21 +308,21 @@
                 <option value="bitcoin">Bitcoin</option>
               </select>
       
-              <div id="credit-card" class="credit-card">
+              <div id="credit-card" className="credit-card">
       
-                <div class="col-6 col">
+                <div className="col-6 col">
                   <label for="cc-num">Card Number:</label>
-                    <input id="cc-num" name="user_cc-num" type="text">
+                    <input id="cc-num" name="user_cc-num" type="text"/>
                 </div>
       
-                <div class="col-3 col">
+                <div className="col-3 col">
                   <label for="zip">Zip Code:</label>
-                  <input id="zip" name="user_zip" type="text"> 
+                  <input id="zip" name="user_zip" type="text"/> 
                 </div>
       
-                <div class="col-3 col">
+                <div className="col-3 col">
                   <label for="cvv">CVV:</label>
-                  <input id="cvv" name="user_cvv" type="text"> 
+                  <input id="cvv" name="user_cvv" type="text"/> 
                 </div>
       
                 <label for="exp-month">Expiration Date:</label>
@@ -331,13 +364,22 @@
             <button type="button" id="cancel">Cancel</button>
           </form>
         </div>      
-      </div>
-      <script
-      src="https://code.jquery.com/jquery-3.3.1.min.js"
-      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-      crossorigin="anonymous"></script>
-    <script src="js/app.js"></script>
-    <script src="js/ui.js"></script>
-    <script src="js/modal.js"></script>
-</body>
-</html>
+</div>
+    </div>
+  )
+}
+
+function Application() {
+  return (
+   <div>
+    <Header />
+    <Main />
+    <Footer />
+    <Modal />
+   </div>
+  );
+}
+
+ReactDOM.render(<Application />,
+  document.getElementById('container')
+)
