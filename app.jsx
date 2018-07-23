@@ -1,3 +1,88 @@
+const SPEAKERS = [
+  {
+    key: 1,
+    name: "Vivianne",
+    pic: "img/vivianne.png",
+    bio: "Vivianne is a web developer and teacher who is passionate about building scalable, data-driven web apps, especially ones that address old problems with new tech!",
+    topic: "JavaScript Frameworks"
+},
+{
+    key: 2,
+    name: "Ecma",
+    pic: "img/ecma.png",
+    bio: "Ecma found her passion for programming and teaching over 15 years ago. She is excited to introduce you to all of the wonders of JavaScript.",
+    topic: "JavaScript Libraries"
+},
+{
+    key: 3,
+    name: "Nodestradomus",
+    pic: "img/nodestradamus.png", 
+    bio: "\"NodeStra\" is a software engineer and philosopher trying to leave the world better than he found it. He codes for non-profits, eCommerce, and large-scale web apps.",
+    topic: "Node"
+},
+{
+    key: 4,
+    name: "Robbie",
+    pic: "img/robbie.png",
+    bio: "Robbie is a JavaScript developer working on large-scale applications. He's also a teacher who strives to support students in removing barriers to learning code.",
+    topic: "Express"
+},
+{
+    key: 5,
+    name: "Jay",
+    pic: "img/jay.png",
+    bio: "Jay is a developer, author of CSS: The Missing Manual, JavaScript & jQuery: The Missing Manual, and web development teacher. ",
+    topic: "Build Tools"
+},
+{
+    key: 6,
+    name: "JSON",
+    pic: "img/json.png",
+    bio: "All of his professional life, Json has worked with computers online; he is a polyglot programmer and likes using the right tools for the job",
+    topic: "npm"
+}
+];
+
+const TOPICS = [
+  {
+    key: 1,
+    title: "Main Conference",
+    desc: " This conference aims to provide you with the latest information of the full JavaScript development stack."
+  },
+  {
+    key: 2,
+    title: "JavaScript Frameworks Workshop",
+    desc: "Keeping up with JavaScript frameworks can be a challenge. There are a lot of them, and seemingly another one every month. How do you know which ones might be right for your project? What are their strengths and weaknesses? How do you get started?"
+  },
+  {
+    key: 3,
+    title: "JavaScript Libraries Workshop",
+    desc: "JavaScript libraries, seem to appear at least once a week. As a developer, it's time consuming to test tool. Let us help you with a brief review of 12 JS libraries for web interfaces development that are certainly worth of a closer look."
+  },
+  {
+    key: 4,
+    title: "Express Workshop",
+    desc: "Express is a popular unopinionated web framework, written in JavaScript and hosted within the node.js runtime environment. Let us explain some of the key benefits of this framework, how to set up your development environment and how to perform common web development and deployment tasks."
+  },
+  {
+    key: 5,
+    title: "Node.js Workshop",
+    desc: "Join us for a Node.js event focused on the Ecosystem of Node. This is a mini-summit featuring presentations, workshops and keynotes covering everything from technical talks to case studies detailing Node.js enterprise implementation at some of the world’s largest companies."
+  },
+  {
+    key: 6,
+    title: "Build Tools",
+    desc: "Back in the day, it was enough to concatenate scripts together. Times have changed, though, and now distributing your JavaScript code can be a complicated endeavor. We'll show you how to simplify dependency management through a variety of build tools."
+  },
+  {
+    key: 7,
+    title: "npm",
+    desc: "npm is a command line tool to help you manage Node.js modules and this course will get you up and running with npm. We'll take a look at the several different ways you can install packages with npm. We'll also take a look at updating and removing packages using npm." 
+  }
+]
+
+
+
 function Header() {
   return (
     <div>
@@ -76,106 +161,53 @@ function About() {
   )
 }
 
-function Speakers() {
+function Speaker(props) {
+  return (
+    <div className="card">
+      <img src={props.pic} />
+      <h3>{props.topic}</h3>
+      <p>{props.bio}</p>
+  </div>
+  )
+}
+
+Speaker.propTypes = {
+  pic: React.PropTypes.string.isRequired,
+  topic: React.PropTypes.string.isRequired,
+  bio: React.PropTypes.string.isRequired
+}
+
+function Speakers(props) {
   return (
     <div>
       <h2>Speakers</h2>
         <section id="speakers">            
-            <div className="card">
-                <img src="img/vivianne.png" alt="a picture of Vivianne" />
-                <h3>JavaScript Frameworks</h3>
-                <p>
-                    Vivianne is a web developer and teacher who is passionate about building scalable, data-driven web apps, especially ones that address old problems with new tech!
-                </p>
-            </div>
-            <div className="card">
-                <img src="img/ecma.png" alt="a picture of Ecma" />
-                <h3>JavaScript Libraries</h3>
-                <p>
-                    Ecma found her passion for programming and teaching over 15 years ago. She is excited to introduce you to all of the wonders of JavaScript.
-                </p>
-            </div>
-            <div className="card">
-                <img src="img/nodestradamus.png" alt="a picture of Nodestradamus"/>
-                <h3>Node</h3>
-                <p>
-                    "NodeStra" is a software engineer and philosopher trying to leave the world better than he found it. He codes for non-profits, eCommerce, and large-scale web apps.
-                </p>
-            </div>
-            <div className="card">
-                <img src="img/robbie.png" alt="a picture of Robbie" />
-                <h3>Express</h3>
-                <p>
-                    Robbie is a JavaScript developer working on large-scale applications. He's also a teacher who strives to support students in removing barriers to learning code.
-                </p>
-            </div>
-            <div className="card">
-                <img src="img/jay.png" alt="a picture of Jay" />
-                <h3>Build Tools</h3>
-                <p>
-                    Jay is a developer, author of CSS: The Missing Manual, JavaScript &amp; jQuery: The Missing Manual, and web development teacher.
-                </p>
-            </div>
-            <div className="card">
-                <img src="img/json.png" alt="a picture of JSON" />
-                <h3>npm</h3>
-                <p>
-                    All of his professional life, Json has worked with computers online; he is a polyglot programmer and likes using the right tools for the job.
-                </p>
-            </div>
+           {props.speakers.map(function(speaker) {
+             return <Speaker pic={speaker.pic} bio={speaker.bio} topic={speaker.topic} key={speaker.key}/>
+           })} 
         </section>
     </div>
   )
 }
 
-function Descriptions() {
+function Topics(props) {
+  return(
+    <li>
+      <h3>{props.title}</h3>
+      <p>{props.desc}</p>
+    </li>
+  )
+}
+
+function Descriptions(props) {
   return(
     <div>
       <section id="descriptions">
             <h2>Topic Details</h2>
             <ul id="schedList" className="accordian">
-                <li>
-                    <h3>Main Conference</h3>
-                    <p>
-                            This conference aims to provide you with the latest information of the full JavaScript development stack. 
-                    </p>
-                </li>
-                <li>
-                    <h3>JavaScript Frameworks Workshop</h3>
-                    <p>
-                            Keeping up with JavaScript frameworks can be a challenge. There are a lot of them, and seemingly another one every month. How do you know which ones might be right for your project? What are their strengths and weaknesses? How do you get started?  
-                    </p>
-                </li>
-                <li>
-                    <h3>JavaScript Libraries Workshop</h3>
-                    <p>
-                            JavaScript libraries, seem to appear at least once a week. As a developer, it's time consuming to test tool. Let us help you with a brief review of 12 JS libraries for web interfaces development that are certainly worth of a closer look.  
-                    </p>
-                </li>
-                <li>
-                    <h3>Express Workshop</h3>
-                    <p>
-                            Express is a popular unopinionated web framework, written in JavaScript and hosted within the node.js runtime environment. Let us explain some of the key benefits of this framework, how to set up your development environment and how to perform common web development and deployment tasks.  
-                    </p>
-                </li>
-                <li>
-                    <h3>Node.js Workshop</h3>
-                    <p>
-                            Join us for a Node.js event focused on the Ecosystem of Node. This is a mini-summit featuring presentations, workshops and keynotes covering everything from technical talks to case studies detailing Node.js enterprise implementation at some of the world’s largest companies.   
-                    </p>
-                </li>
-                <li>
-                    <h3>Build Tools</h3>
-                    <p>
-                            Back in the day, it was enough to concatenate scripts together. Times have changed, though, and now distributing your JavaScript code can be a complicated endeavor. We'll show you how to simplify dependency management through a variety of build tools.  
-                    </p>
-                </li>
-                <li>
-                    <h3>npm</h3>
-                    <p>
-                            npm is a command line tool to help you manage Node.js modules and this course will get you up and running with npm. We'll take a look at the several different ways you can install packages with npm. We'll also take a look at updating and removing packages using npm. 
-                    </p>
-                </li>
+                {props.topics.map(function(topic) {
+                  return <Topics title={topic.title} desc={topic.desc} key={topic.key} />
+                })}
             </ul> 
             <div id="callout">
                 <input type="button" id="btn-register-now" value="Don't miss out! Register now!" className="registration" />
@@ -185,14 +217,14 @@ function Descriptions() {
   )
 }
 
-function Main() {
+function Main(props) {
   return (
     <div>
       <main>
         <Jumbotron />
         <About />
-        <Speakers />
-        <Descriptions />
+        <Speakers speakers={props.speakers}/>
+        <Descriptions topics={props.topics}/>
       </main>
     </div>
   );
@@ -369,17 +401,17 @@ function Modal() {
   )
 }
 
-function Application() {
+function Application(props) {
   return (
    <div>
     <Header />
-    <Main />
+    <Main speakers={props.speakers} topics={props.topics}/>
     <Footer />
     <Modal />
    </div>
   );
 }
 
-ReactDOM.render(<Application />,
+ReactDOM.render(<Application speakers={SPEAKERS} topics={TOPICS}/>,
   document.getElementById('container')
 )
